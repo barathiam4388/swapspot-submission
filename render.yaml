@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: swapspot-api
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CLIENT_URL
+        value: https://swapspot-frontend.onrender.com
+  - type: web
+    name: swapspot-frontend
+    env: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://swapspot-api.onrender.com/api
+      - key: VITE_SOCKET_URL
+        value: https://swapspot-api.onrender.com
