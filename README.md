@@ -1,4 +1,4 @@
-#  SwapSpot
+# 🚀 SwapSpot
 
 SwapSpot est une plateforme web full-stack permettant aux étudiants d'échanger des objets scolaires utiles entre eux.
 
@@ -8,11 +8,11 @@ L'objectif de SwapSpot est de simplifier les échanges de matériel scolaire tou
 
 ---
 
-# Aperçu
+# 📸 Aperçu
 
 > Ajoutez ici quelques captures d'écran de l'application.
 
-###Accueil
+### Accueil
 
 ![Accueil](./docs/screenshots/home.png)
 
@@ -30,7 +30,7 @@ L'objectif de SwapSpot est de simplifier les échanges de matériel scolaire tou
 
 ---
 
-#  Démonstration
+# 🌐 Démonstration
 
 Application :
 
@@ -44,9 +44,9 @@ https://swapspot-api.onrender.com/api/health
 
 ---
 
-#  Fonctionnalités
+# ✨ Fonctionnalités
 
-##  Authentification
+## 🔐 Authentification
 
 - Création de compte
 - Connexion sécurisée
@@ -56,7 +56,7 @@ https://swapspot-api.onrender.com/api/health
 
 ---
 
-##  Gestion des annonces
+## 📦 Gestion des annonces
 
 Les utilisateurs peuvent :
 
@@ -77,7 +77,7 @@ Chaque annonce contient notamment :
 
 ---
 
-##  Gestion des demandes d'échange
+## 🔄 Gestion des demandes d'échange
 
 Un utilisateur peut :
 
@@ -109,7 +109,7 @@ Grâce à Socket.IO, les utilisateurs reçoivent instantanément les mises à jo
 
 ---
 
-#  Technologies utilisées
+# 🛠️ Technologies utilisées
 
 ## Frontend
 
@@ -137,7 +137,7 @@ Grâce à Socket.IO, les utilisateurs reçoivent instantanément les mises à jo
 
 ---
 
-#  Structure du projet
+# 📁 Structure du projet
 
 ```
 SwapSpot
@@ -172,7 +172,7 @@ SwapSpot
 
 ---
 
-#  Installation
+# ⚙️ Installation
 
 ## Cloner le projet
 
@@ -194,7 +194,7 @@ npm run install:all
 
 ---
 
-#  Variables d'environnement
+# 🔑 Variables d'environnement
 
 ## Backend
 
@@ -232,7 +232,7 @@ VITE_SOCKET_URL=http://localhost:5001
 
 ---
 
-#  Lancer le projet
+# ▶️ Lancer le projet
 
 ```bash
 npm run dev
@@ -252,7 +252,7 @@ http://localhost:5001/api/health
 
 ---
 
-#  API
+# 📡 API
 
 ## Auth
 
@@ -300,7 +300,7 @@ DELETE /api/requests/:id
 
 ---
 
-#  Sécurité
+# 🔒 Sécurité
 
 L'application inclut plusieurs mesures de sécurité :
 
@@ -390,7 +390,7 @@ render.yaml
 
 ---
 
-#  Compte de démonstration
+# 🧪 Compte de démonstration
 
 Utilisateur 1
 
@@ -420,7 +420,7 @@ Demo123!
 
 ---
 
-#  Améliorations futures
+# 🔮 Améliorations futures
 
 - Upload d'images
 - Favoris
@@ -435,7 +435,7 @@ Demo123!
 
 ---
 
-#  Auteur
+# 👨‍💻 Auteur
 
 **Bara Thiam**
 
@@ -455,6 +455,6 @@ https://ajouter-votre-portfolio.com
 
 ---
 
-#  Licence
+# 📄 Licence
 
 Ce projet est publié sous la licence MIT.
