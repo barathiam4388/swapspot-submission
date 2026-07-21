@@ -1,219 +1,460 @@
-# SwapSpot
+#  SwapSpot
 
-SwapSpot est une application web full-stack originale pour des etudiants qui veulent echanger des objets scolaires utiles entre eux. Un etudiant peut creer un compte, publier une annonce, envoyer une demande d’echange et voir les mises a jour en temps reel.
+SwapSpot est une plateforme web full-stack permettant aux étudiants d'échanger des objets scolaires utiles entre eux.
 
-Ce projet a ete concu pour respecter les exigences du cours :
+Les utilisateurs peuvent créer un compte, publier des annonces, envoyer des demandes d'échange et recevoir des notifications en temps réel lorsque l'état d'une demande change.
 
-- Backend avec `Node.js`, `Express`, `MongoDB`, `JWT`, `Bcrypt`
-- Frontend avec `React`
-- Au moins 3 modeles : `User`, `Listing`, `SwapRequest`
-- CRUD complet sur `Listing` et `SwapRequest`
-- Evenements en temps reel avec WebSockets via `Socket.IO`
-- Configuration de deploiement pour Render
-- Pipeline CI optionnel avec GitHub Actions
+L'objectif de SwapSpot est de simplifier les échanges de matériel scolaire tout en offrant une expérience moderne, rapide et intuitive.
 
-## Idee du projet
+---
 
-Au lieu de refaire un gestionnaire de taches, cette application se concentre sur l’echange d’objets entre etudiants.
+#  Aperçu
 
-Exemples :
+> Ajoutez ici quelques captures d'écran de l'application.
 
-- Un etudiant publie une calculatrice a echanger
-- Un autre etudiant propose des ecouteurs ou un cahier
-- Le proprietaire accepte ou refuse la demande
-- L’interface se met a jour en temps reel chez les utilisateurs connectes
+### Accueil
 
-## Fonctionnalites principales
+![Accueil](./docs/screenshots/home.png)
 
-### Authentification
+### Tableau de bord
 
-- Inscription
-- Connexion
-- Recuperation de l’utilisateur courant avec `/api/auth/me`
-- Hachage du mot de passe avec `bcryptjs`
-- Protection des routes avec middleware JWT
+![Dashboard](./docs/screenshots/dashboard.png)
 
-### Modele 1 : User
+### Détails d'une annonce
 
-Operations exigees par le projet :
+![Listing](./docs/screenshots/listing.png)
 
-- Inscription
-- Connexion
-- Recuperation des informations de l’utilisateur courant
+### Demandes d'échange
 
-### Modele 2 : Listing
+![Requests](./docs/screenshots/requests.png)
 
-CRUD complet :
+---
 
-- Creer une annonce
-- Lire toutes les annonces et une seule annonce
-- Modifier une annonce
-- Supprimer une annonce
+#  Démonstration
 
-### Modele 3 : SwapRequest
+Application :
 
-CRUD complet :
+https://swapspot.onrender.com
 
-- Creer une demande
-- Lire mes demandes, les demandes recues et une demande precise
-- Modifier le contenu ou le statut d’une demande
-- Supprimer une demande
+API :
 
-## Evenements en temps reel
+https://swapspot-api.onrender.com/api/health
 
-L’application inclut plus de 2 evenements WebSocket :
+*(Remplacez ces liens par vos véritables URL Render.)*
 
-- `listing:created`
-- `listing:updated`
-- `listing:deleted`
-- `request:created`
-- `request:updated`
-- `request:deleted`
-- `notification:new`
+---
 
-## Technologies utilisees
+#  Fonctionnalités
 
-### Backend
+##  Authentification
 
+- Création de compte
+- Connexion sécurisée
+- Authentification JWT
+- Routes protégées
+- Mot de passe chiffré avec Bcrypt
+
+---
+
+##  Gestion des annonces
+
+Les utilisateurs peuvent :
+
+- créer une annonce
+- modifier leur annonce
+- supprimer leur annonce
+- consulter toutes les annonces
+- consulter une annonce spécifique
+
+Chaque annonce contient notamment :
+
+- titre
+- description
+- catégorie
+- état
+- propriétaire
+- date de création
+
+---
+
+##  Gestion des demandes d'échange
+
+Un utilisateur peut :
+
+- envoyer une demande
+- modifier une demande
+- annuler une demande
+- accepter une demande
+- refuser une demande
+- consulter ses demandes envoyées
+- consulter les demandes reçues
+
+---
+
+## ⚡ Temps réel
+
+Grâce à Socket.IO, les utilisateurs reçoivent instantanément les mises à jour importantes.
+
+Événements disponibles :
+
+- listing:created
+- listing:updated
+- listing:deleted
+
+- request:created
+- request:updated
+- request:deleted
+
+- notification:new
+
+---
+
+#  Technologies utilisées
+
+## Frontend
+
+- React
+- Vite
+- React Router
+- Context API
+- Axios
+- Socket.IO Client
+
+## Backend
+
+- Node.js
 - Express
+- MongoDB
 - Mongoose
 - JWT
 - BcryptJS
 - Socket.IO
 
-### Frontend
+## Déploiement
 
-- React
-- React Router
-- Socket.IO Client
-- Vite
+- Render
+- MongoDB Atlas
 
-## Structure du projet
+---
 
-```text
-backend/
-  src/
-    config/
-    controllers/
-    middleware/
-    models/
-    routes/
-    utils/
-frontend/
-  src/
-    api/
-    components/
-    context/
-    pages/
-    styles/
+#  Structure du projet
+
+```
+SwapSpot
+│
+├── backend
+│   ├── src
+│   │   ├── config
+│   │   ├── controllers
+│   │   ├── middleware
+│   │   ├── models
+│   │   ├── routes
+│   │   ├── sockets
+│   │   └── utils
+│   └── package.json
+│
+├── frontend
+│   ├── src
+│   │   ├── api
+│   │   ├── assets
+│   │   ├── components
+│   │   ├── context
+│   │   ├── hooks
+│   │   ├── layouts
+│   │   ├── pages
+│   │   ├── styles
+│   │   └── utils
+│   └── package.json
+│
+├── render.yaml
+└── README.md
 ```
 
-## Installation locale
+---
 
-### 1. Installer les dependances
+#  Installation
+
+## Cloner le projet
+
+```bash
+git clone https://github.com/votre-utilisateur/swapspot.git
+
+cd swapspot
+```
+
+---
+
+## Installer les dépendances
 
 ```bash
 npm install
+
 npm run install:all
 ```
 
-### 2. Configurer les variables d’environnement
+---
 
-Backend : creer `backend/.env`
+#  Variables d'environnement
+
+## Backend
+
+Créer
+
+```
+backend/.env
+```
 
 ```env
 PORT=5001
-MONGODB_URI=mongodb://127.0.0.1:27017/swapspot
-JWT_SECRET=votre_secret_ici
+
+MONGODB_URI=your_mongodb_connection
+
+JWT_SECRET=your_secret_key
+
 CLIENT_URL=http://localhost:5173
 ```
 
-Frontend : creer `frontend/.env`
+---
+
+## Frontend
+
+Créer
+
+```
+frontend/.env
+```
 
 ```env
 VITE_API_URL=http://localhost:5001/api
+
 VITE_SOCKET_URL=http://localhost:5001
 ```
 
-### 3. Lancer l’application
+---
+
+#  Lancer le projet
 
 ```bash
 npm run dev
 ```
 
-Frontend :
+Frontend
 
-- [http://localhost:5173](http://localhost:5173)
+```
+http://localhost:5173
+```
 
-Backend :
+Backend
 
-- [http://localhost:5001/api/health](http://localhost:5001/api/health)
+```
+http://localhost:5001/api/health
+```
 
-## Routes API importantes
+---
 
-### Auth
+#  API
 
-- `POST /api/auth/signup`
-- `POST /api/auth/login`
-- `GET /api/auth/me`
+## Auth
 
-### Listings
+```
+POST /api/auth/signup
 
-- `GET /api/listings`
-- `GET /api/listings/:id`
-- `POST /api/listings`
-- `PUT /api/listings/:id`
-- `DELETE /api/listings/:id`
+POST /api/auth/login
 
-### Swap Requests
+GET /api/auth/me
+```
 
-- `GET /api/requests`
-- `GET /api/requests/incoming`
-- `GET /api/requests/:id`
-- `POST /api/requests`
-- `PUT /api/requests/:id`
-- `DELETE /api/requests/:id`
+---
 
-## Deploiement Render
+## Listings
 
-### Service Web Backend
+```
+GET /api/listings
 
-- Dossier racine : `backend`
-- Commande de build : `npm install`
-- Commande de demarrage : `npm start`
+GET /api/listings/:id
 
-Variables d’environnement :
+POST /api/listings
 
-- `MONGODB_URI`
-- `JWT_SECRET`
-- `CLIENT_URL`
+PUT /api/listings/:id
 
-### Site statique Frontend
+DELETE /api/listings/:id
+```
 
-- Dossier racine : `frontend`
-- Commande de build : `npm install && npm run build`
-- Dossier de publication : `dist`
+---
 
-Variables d’environnement :
+## Swap Requests
 
-- `VITE_API_URL`
-- `VITE_SOCKET_URL`
+```
+GET /api/requests
 
-Vous pouvez aussi utiliser le fichier [render.yaml](/Users/barathiam/Documents/New%20project/render.yaml).
+GET /api/requests/incoming
 
-## Checklist pour la video
+GET /api/requests/:id
 
-Dans votre video de remise, montrez :
+POST /api/requests
 
-- L’inscription et la connexion
-- La creation d’une annonce
-- La modification et la suppression d’une annonce
-- La creation, la modification, l’acceptation, le refus et la suppression d’une demande d’echange
-- Les mises a jour en temps reel dans deux fenetres du navigateur
-- L’application deployee sur Render
+PUT /api/requests/:id
 
-## Notes pour la remise
+DELETE /api/requests/:id
+```
 
-- Ne jamais envoyer de vrais secrets
-- Inclure vos liens de deploiement dans la remise finale
-- Garder MongoDB Atlas ou votre connexion Render active
+---
+
+#  Sécurité
+
+L'application inclut plusieurs mesures de sécurité :
+
+- Authentification JWT
+- Hachage des mots de passe avec Bcrypt
+- Middleware de protection
+- Validation des données
+- Vérification des permissions
+- Variables d'environnement
+- Protection des routes privées
+
+---
+
+# 🚀 Déploiement
+
+## Backend
+
+Créer un **Web Service** sur Render.
+
+Configurer :
+
+```
+Root Directory
+
+backend
+```
+
+Build Command
+
+```
+npm install
+```
+
+Start Command
+
+```
+npm start
+```
+
+Variables :
+
+```
+MONGODB_URI
+
+JWT_SECRET
+
+CLIENT_URL
+```
+
+---
+
+## Frontend
+
+Créer un **Static Site**.
+
+Root Directory
+
+```
+frontend
+```
+
+Build
+
+```
+npm install && npm run build
+```
+
+Publish Directory
+
+```
+dist
+```
+
+Variables
+
+```
+VITE_API_URL
+
+VITE_SOCKET_URL
+```
+
+Le fichier de configuration Render est disponible ici :
+
+```
+render.yaml
+```
+
+---
+
+#  Compte de démonstration
+
+Utilisateur 1
+
+```
+Email
+
+demo1@swapspot.app
+
+Mot de passe
+
+Demo123!
+```
+
+Utilisateur 2
+
+```
+Email
+
+demo2@swapspot.app
+
+Mot de passe
+
+Demo123!
+```
+
+*(À adapter selon vos comptes de démonstration.)*
+
+---
+
+#  Améliorations futures
+
+- Upload d'images
+- Favoris
+- Recherche avancée
+- Pagination
+- Messagerie privée
+- Historique des échanges
+- Évaluations entre utilisateurs
+- Géolocalisation
+- Notifications par e-mail
+- Mode sombre
+
+---
+
+#  Auteur
+
+**Bara Thiam**
+
+Développeur Web Full-Stack Junior
+
+GitHub
+
+https://github.com/barathiam4388
+
+LinkedIn
+
+https://linkedin.com/in/ajouter-votre-lien
+
+Portfolio
+
+https://ajouter-votre-portfolio.com
+
+---
+
+#  Licence
+
+Ce projet est publié sous la licence MIT.
