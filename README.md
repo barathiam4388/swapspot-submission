@@ -14,7 +14,7 @@ L'objectif de SwapSpot est de simplifier les échanges de matériel scolaire tou
 
 ### Accueil
 
-![Accueil](./screenshots/login.png)
+![Accueil](./screenshots/home.png)
 ### Tableau de bord
 
 ![Dashboard](./docs/screenshots/home.png)
